@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/vendors/css/bootstrap.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <script type="text/javascript" src="/vendors/angular.min.js"></script>
+    <script type="text/javascript" src="/vendors/angular-route.min.js"></script>
+    <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/messageController.js"></script>
+
+    <title>Message Board</title>
+</head>
+<body>
+    <div class="container" ng-controller="messageController as message">
+        <h1>Message Board</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <form ng-submit="message.newMessage(message.newM)">
+                    <label for="user">User Name: </label>
+                    <input type="text" ng-model="message.newM.user" id="userName" placeholder="User Name" />
+                    <label for="message">Message: </label>
+                    <input type="text" ng-model="message.newM.message" id="message" placeholder="Your Message" />
+                    <button class="btn btn-primary">Add Message</button>
+                </form>
+            </div>
+        </div>
+                
+            <div class="row">
+                <div class="col-md-12">
+                    <div ng-repeat="message in message.message" class="well col-md-3">
+                        <p>
+                            <strong>User Name:</strong> {{message.user}}</p>
+                        <p>
+                            <strong>Message:</strong> {{message.message}}</p>
+            
+                    </div>
+                </div>
+            </div>
+
+
+    </div>    
+</body>
+</html>
+</html>
